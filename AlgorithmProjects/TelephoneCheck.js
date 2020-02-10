@@ -21,7 +21,7 @@ function telephoneCheck(str) {
     //console.log(thirdRound);
 }
 
-console.log(telephoneCheck("2(757)622-7382"));
+console.log(telephoneCheck("973)-595-0470"));
 console.log(telephoneCheck("27576227382"));
 console.log(telephoneCheck("1 (555) 555-5555"));
 console.log(telephoneCheck("1 555 555 5555"));
