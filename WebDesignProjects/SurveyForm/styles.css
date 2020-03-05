@@ -1,6 +1,8 @@
 .wrapper {
   display: grid;
+  margin: auto;
   grid-template-rows: 20% 10% 70%;
+  min-width: 100%;
 }
 .form {
   align-self: center;
@@ -77,6 +79,11 @@ input {
 }
 #recs {
   font: 1rem "Fira Sans", sans-serif;
+  margin: auto;
+}
+#commentbox {
+  margin: auto;
+  padding-block: 5px;
 }
 input[type="submit"] {
   -webkit-appearance: none;
