@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <div class="my-container">
+      <h1 id="title">Client Satisfaction Survey</h1>
+      <h3>Fern's Counseling and Wellness Clinic, LLC</h3>
+      <img
+        src="https://cdn.pixabay.com/photo/2016/03/28/20/39/sky-1286888_960_720.jpg"
+        alt="sky"
+      />
+    </div>
+    <p id="description">
+      Please take a minute to complete this survey, as your feedback helps me
+      provide the best service to my clients.<br />
+    </p>
+    <p id="data">*Your data is stricly confidential and will never be sold.</p>
+    <br />
+    <form id="survey-form" action=""></form>
+    <label id="name-label" for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      placeholder="Richard Perrotta"
+      required
+    /><br /><br />
+    <label id="email-label" for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="perrottarichard@gmail.com"
+      required
+    /><br /><br />
+    <label id="number-label" for="number">Age:</label>
+    <input
+      type="text"
+      id="number"
+      min="12"
+      max="99"
+      placeholder="33"
+    /><br /><br />
+    <label id="dropdown-label" for="dropdown" placeholder="Highly satisfied"
+      >How satisfied are you with the level of service you've received?</label
+    >
+    <input id="dropdown" list="satisfaction" placeholder="Highly satisfied" />
+    <datalist id="satisfaction">
+      <option value="Highly satisfied"> </option>
+      <option value="Mostly satisfied"> </option>
+      <option value="Satisfied"> </option>
+      <option value="Mostly dissatisfied"> </option>
+      <option value="Highly dissatisfied"> </option></datalist
+    ><br /><br />
+    <label id="recommendation" for="buttons"
+      >Would you recommend Fern's services to a friend or family member?</label
+    >
+    <input type="radio" id="Yes" name="rec" value="Yes" />
+    Yes, of course!<br />
+    <input type="radio" id="Notsure" name="rec" value="Notsure" />
+    I'm not sure.<br />
+    <input type="radio" id="No" name="rec" value="No" />
+    No, I wouldn't.<br />
+    <br />
+    <label id="box" for="boxes"
+      >How did you hear about Fern's Counseling? Choose all that apply:</label
+    >
+    <label for="checkbox1"></label>
+    <input type="checkbox" id="checkbox1" value="Search engine" />Search
+    engine<br />
+    <input type="checkbox" id="checkbox2" value="From a friend" />From a
+    friend<br />
+    <input type="checkbox" id="checkbox3" value="From a family member" />From a
+    family member<br />
+    <input type="checkbox" id="checkbox4" value="TV commercial" />TV
+    commercial<br />
+    <input type="checkbox" id="checkbox5" value="The back of a cereal box" />The
+    back of a cereal box<br />
+    <input type="checkbox" id="checkbox6" value="Spam advertisement" />Spam
+    advertisement<br />
+    <input type="checkbox" id="checkbox7" value="Other" />Other<input
+      type="text"
+      id="other"
+    />Please give a brief explanation.<br /><br />
+    <label for="commentbox">Any comments or suggestions for Fern?</label>
+    <textarea id="commentbox" rows="4" cols="50"> </textarea>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+body {
+  background-color: white;
+}
+.my-container {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  border-bottom-style: groove;
+}
+.my-container h1 {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  font-weight: 200;
+  font: 3rem "Fira Sans", sans-serif;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+.my-container h3 {
+  text-align: center;
+  font: 1.5rem "Fira Sans", sans-serif;
+}
+#description {
+  text-align: left;
+  font-size: 16px;
+}
+#data {
+  text-align: left;
+  font-size: 10px;
+}
+
+.my-container img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.3;
+}
+p {
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+label {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+}
+
+input,
+label {
+  margin: 0.1rem 0;
+}
