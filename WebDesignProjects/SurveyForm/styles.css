@@ -82,6 +82,7 @@ input {
   margin: auto;
 }
 #commentbox {
+  position: justify;
   margin: auto;
   padding-block: 5px;
 }
