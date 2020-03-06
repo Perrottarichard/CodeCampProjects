@@ -1,33 +1,33 @@
 .wrapper {
   display: grid;
+  position: relative;
   margin: auto;
-  grid-template-rows: 20% 10% 70%;
+  grid-template-rows: auto;
   min-width: 100%;
+  min-height: 100%;
+  background-color: #3c3c5d;
 }
 .form {
+  display: inherit;
   align-self: center;
   margin: auto;
+  padding: 20px 20px 20px 20px;
 }
 #form {
   align-self: center;
-  background-color: white;
-  border: gray;
-  border-style: solid;
-  border-width: 1px;
-  padding-top: 20px;
-  padding-left: 20px;
-  width: 50%;
-  border-radius: 25px;
-  background-color: rgb(212, 232, 255);
+  color: white;
 }
 body {
   background-color: white;
 }
 .heading {
+  display: absolute;
   position: relative;
   overflow: hidden;
-  background-size: cover;
+  background-size: contain;
   border-bottom-style: groove;
+  background-color: white;
+  color: #3c3c5d;
 }
 .heading h1 {
   text-align: center;
@@ -38,29 +38,28 @@ body {
   font: 3rem "Fira Sans", sans-serif;
   font-variant: small-caps;
   font-style: oblique;
+  font-weight: bold;
 }
 .heading h3 {
   text-align: center;
   font: 1.5rem "Fira Sans", sans-serif;
+  margin: auto;
+  font-weight: bold;
+  padding: 0px 20px 0px 20px;
 }
 #description {
   text-align: left;
   font-size: 16px;
+  color: white;
+  padding: 0px 20px 0px 20px;
 }
 #data {
   text-align: left;
   font-size: 10px;
+  color: white;
+  padding: 0px 20px 0px 20px;
 }
 
-.heading img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  opacity: 0.3;
-}
 p {
   font: 1rem "Fira Sans", sans-serif;
 }
@@ -68,14 +67,17 @@ p {
 label {
   display: block;
   font: 1rem "Fira Sans", sans-serif;
+  margin: auto;
 }
 
 input {
   font: 1rem "Fira Sans", sans-serif;
-  margin: 0.1rem 0;
+  margin: auto;
+  size: inherit;
 }
 #boxes {
   font: 1rem "Fira Sans", sans-serif;
+  margin: auto;
 }
 #recs {
   font: 1rem "Fira Sans", sans-serif;
