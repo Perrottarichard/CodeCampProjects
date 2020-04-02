@@ -1,30 +1,29 @@
-import React from 'React'
+import React, { Component } from 'React'
 import React from 'ReactDOM'
+import './custom.css'
 
-class App extends React
-    .Component {
+
+class App extends Component {
     render() {
         return (
             <div className="App">
                 <div class="container" id="bootstrap-override">
                     <div>
                         <h1>Give it a Try!</h1></div>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <Displayed />
-                        </div>
-                    </div>
+
+                    <Displayed />
+
                 </div>
             </div>
         );
     }
 }
 
-class Displayed extends React.Component {
+class Displayed extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            input: '# Welcome to my Markdown Previewer!\n## This is an example of some markdown text\n### Try to make your own using this previewer.\nYou can add some code using backticks, `<div></div>`.\n>Just type in this box, and your formatted text will appear in the box to the right.\n\nYou can write a multiline code block:\n\n```\n\nfunction test(){\n\nconsole.log("Test");\n\n}\n\n```\n\nYou can list items like this\n-       Genre\n - Rock\n - Blues\n - Classical\n\n### You can make your text **bold** too!\n\n### Create links [FreeCodeCamp](https://www.freecodecamp.org/perrottarichard)\n...or even embed your favorite photos![pic](https://avatars0.githubusercontent.com/u/57297531?s=460&v=4)'
+            input: '# Type in this box to preview your markdown!\n## This is an example of some markdown text\n### Try to make your own using this previewer.\nYou can add some code using backticks, `<div></div>`.\n\n*You can write a multiline code block:*\n```\nfunction test(){\n\nconsole.log("Test");\n\n}\n\n```\n\nYou can list items like this:\n- Genre\n - Jazz\n - Blues\n - Classical\n\nYou can make your text **bold**, or \n> add a blockquote\n### Create links [FreeCodeCamp](https://www.freecodecamp.org/perrottarichard)...or even embed a photo of yourself!\n![pic](https://lh3.googleusercontent.com/JCUoAAxgaNtYAb4LvZVliny2VelZesumJo5ezXvyF5AZnG9gJoR03CK0MWxIx2ukvYzJ=s85)'
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -39,15 +38,13 @@ class Displayed extends React.Component {
             return { __html: inp };
         }
         return (
-            <div className="well d-inline-flex" id="wellwell"><h3>Type here:</h3>
-                <textarea rows='20' className="form-control" id="editor" value={this.state.input} onChange={this.handleChange} />
+            <div className="row">
 
-                <div className="well d-inline-flex" id='wellwell'>
-
-                    <div id="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.input) }} />
-                </div>
-
+                <div className="col">
+                    <textarea className="form-control" id="editor" rows="40" cols="10" value={this.state.input} onChange={this.handleChange}>{this.state.input}</textarea></div>
+                <div className="col" id="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.input) }}></div>
             </div>
+
         )
     }
 }
