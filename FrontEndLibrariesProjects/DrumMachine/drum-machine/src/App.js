@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" id="drum-machine" >
-        <div className="container jumbotron">
+        <div className="container jumbotron" id="jumbotron">
           <h1>Drum Machine</h1>
           <Kit />
         </div>
