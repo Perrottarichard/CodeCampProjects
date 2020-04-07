@@ -6,7 +6,7 @@ body {
 .jumbotron {
     background-image: url(https://wallpaperswise.com/wp-content/uploads/2018/09/Drums-wallpapers-HD.jpg);
     color: white;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-align: center;
 }
 #drum-machine 
@@ -34,6 +34,8 @@ body {
     text-align: center;
     vertical-align:inherit;
     align-content: inherit;
+    background-color: black;
+    color: white;
 }
 #display {
 

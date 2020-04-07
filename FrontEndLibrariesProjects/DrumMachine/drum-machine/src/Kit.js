@@ -26,6 +26,7 @@ class Kit extends Component {
         window.addEventListener('keydown', this.handleKeyPress);
     }
     playSound = (letter) => {
+        letter.currentTime = 0;
         letter.play();
     }
 
@@ -118,7 +119,7 @@ class Kit extends Component {
             <div id="display" classname='row'>{this.state.disp}
                 <div id="pads" className="row">
                     <div className="col-1" id="q">
-                        <button type="button" className="drum-pad btn btn-dark" onClick={(e) => this.handleClick(Q, 'Bass')} onMouseUp={(e) => this.handleMouseUp}>Q<audio src="" className="clip" id="q" /></button>
+                        <button type="button" className="drum-pad btn btn-dark" onClick={(e) => this.handleClick(Q, 'Bass')}>Q<audio src={Q} className="clip" id="q" /></button>
                     </div>
                     <div className="col-1" id="w">
                         <button type="button" className="drum-pad btn btn-dark" onClick={(e) => this.handleClick(W, 'Kick-n-Bass')}>W<audio src="" className="clip" id="w" /></button>

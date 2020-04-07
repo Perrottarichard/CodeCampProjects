@@ -1,4 +1,4 @@
-const playSound = (letter) => letter.play();
+
 
 let Q = new Audio('https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3')
 const W = new Audio('https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3')
