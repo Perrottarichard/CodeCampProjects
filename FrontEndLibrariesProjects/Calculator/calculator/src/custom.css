@@ -1,0 +1,89 @@
+.container {
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+.row {
+    justify-content: center;
+    max-width: 400px;
+    min-width: 60px;
+    height: 80px;
+}
+.col {
+    justify-content: center;
+    margin: auto;
+    min-width: 60px;
+    height: 80px;
+    padding: 0px 0px;
+}
+.short-div{
+    width: 100%;
+    height: 50%;
+}
+#divide, #multiply, #subtract, #add {
+    text-align: center;
+    margin: none;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+#multiply, #add {
+    background-color: rgb(180, 175, 175);
+}
+#display {
+    margin-top: 100px;
+    border-color: gray;
+    border-width: 2px;
+    border-style: solid;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 150px;
+    font-size: 50px;
+    padding-right: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#equals {
+    background-color: rgb(174, 208, 231);
+    height: 200%;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+}
+#seven, #eight, #nine, #four, #five, #six, #one, #two, #three, #zero {
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+}
+#clear {
+    background-color: rgb(247, 152, 152);
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    border-color:gray;
+    border-width: 1px;
+}
+#decimal {
+    background-color: rgb(196, 247, 205);
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    border-bottom-left-radius: 10px;
+}
+.btn {
+    border-color: gray;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px;
+    background-color: rgb(218, 220, 223);
+    font-weight: bolder;
+}
+.btn:hover {
+    background-color: rgb(250, 248, 249);
+    font-size: 24px;
+    }
+
+
