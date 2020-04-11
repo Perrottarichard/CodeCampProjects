@@ -2,34 +2,49 @@
 import React, { Component } from 'react';
 import Display from './Display';
 
+
 class Buttons extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            input: '0',
+            accumulated: ['0'],
+            currentValue: '0',
             preVal: '0',
             isOperator: false,
             isLimit: false,
         }
         this.handleClick = this.handleClick.bind(this);
+        this.evaluate = this.evaluate.bind(this);
+    }
+    evaluate(equation) {
+        let result = equation.join('');
+        return eval(result);
+
     }
     handleClick(e) {
         e.preventDefault();
-        let operators = ['+', '-', '*', '/'];
-        if (operators.includes(e.target.value)) {
-            console.log('it is an operator');
-        } else {
-            console.log('it is not an operator');
-
+        if (this.state.accumulated[0] === '0') { //remove default '0' value
+            this.state.accumulated.pop()
+            this.state.accumulated.push(e.target.value) //push clicked value to array
+        } else if (this.state.accumulated.length > 12) {
+            this.state.accumulated = ['MAX LIMIT'] //display max limit
+        } else if (e.target.value === 'allClear') { //handle AC button
+            this.state.accumulated = ['0']
+        } else if (e.target.value === '=') { //handle = button
+            this.state.accumulated = [this.evaluate(this.state.accumulated)]
         }
-        this.setState({
-            input: e.target.value.toString()
+        else {
+            this.state.accumulated.push(e.target.value)
+        }
+        //console.log(this.state.accumulated)
+        this.setState({ //set state to display the accumulated array
+            accumulated: this.state.accumulated
         })
     }
     render() {
         return (
             <div>
-                <Display input={this.state.input} />
+                <Display accumulated={this.state.accumulated} />
                 <div className='row'>
                     <div className='col'><button value='7' onClick={this.handleClick} className='btn' id='seven'>7</button></div>
                     <div className='col'><button value='8' onClick={this.handleClick} className='btn' id='eight'>8</button></div>

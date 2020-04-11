@@ -10,7 +10,9 @@ class Display extends Component {
     }
     render() {
         return (
-            <div className='row' id='display'>{this.props.input}</div>
+            <div className='row' id='display'>
+                {this.props.accumulated.join('')}
+            </div>
         );
     }
 }
