@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import Display from './Display';
 
-
-class Buttons extends Component {
+class Buttons extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,23 +14,76 @@ class Buttons extends Component {
         }
         this.handleClick = this.handleClick.bind(this);
         this.evaluate = this.evaluate.bind(this);
+        this.isValid = this.isValid.bind(this);
+        this.reset = this.reset.bind(this);
+        this.testDec = this.testDec.bind(this);
+    }
+    reset(num) {
+        this.setState({
+            accumulated: ['0']
+        }
+        )
+    }
+    testDec(exp) {
+        exp = exp.join('');
+        let decReg = new RegExp(/\.+\d*\./g)
+        //console.log(exp)
+        //console.log(decReg.test(exp));
+        if (decReg.test(exp)) {
+            //console.log('wtf');
+            this.state.accumulated.pop();
+            // setTimeout(() => {
+            //     this.reset(0);
+            // }, 2000);
+        } else {
+            //console.log('bla');
+            this.setState({
+                accumulated: this.state.accumulated
+            })
+        }
     }
     evaluate(equation) {
-        let result = equation.join('');
-        return eval(result);
+        //let joined = equation.join('');
+        let result = eval(equation).toString();
+        // console.log(result.length)
+        if (result.length < 12) { //avoid result being too long
+            return [result];
+        } else {
+            return [Number(result).toFixed(10)] //limit result to 10 decimal places
+        }
 
     }
+    isValid(expression) {
+        expression = expression.join('');
+        return expression.replace(/\.\./g, '.').replace(/\+\+/g, "+").replace(/\*\*/g, '*').replace(/\/\*/g, "*").replace(/\*\\/g, "/").replace(/\/\//g, '/').replace(/--/g, '+').replace(/\/\+/g, '+').replace(/\+\//g, "/").replace(/\+\*/g, '*').replace(/-\//g, '/').replace(/-\*/g, '*').replace(/\*\+/g, "+").replace(/\*-\+/g, '+').toString();
+    }
+
     handleClick(e) {
-        e.preventDefault();
         if (this.state.accumulated[0] === '0') { //remove default '0' value
             this.state.accumulated.pop()
             this.state.accumulated.push(e.target.value) //push clicked value to array
+        } else if (this.state.accumulated === 'INVALID' || this.state.accumulated === '') {
+            this.state.accumulated = ['0'];
         } else if (this.state.accumulated.length > 12) {
             this.state.accumulated = ['MAX LIMIT'] //display max limit
-        } else if (e.target.value === 'allClear') { //handle AC button
+        } else if (e.target.value === '') { //handle AC button
             this.state.accumulated = ['0']
-        } else if (e.target.value === '=') { //handle = button
-            this.state.accumulated = [this.evaluate(this.state.accumulated)]
+        } else if (e.target.value === '=') {
+            //handle = button
+            let almost = this.isValid(this.state.accumulated)
+            console.log(almost);
+
+            this.state.accumulated = this.evaluate(almost)
+            // setTimeout(() => {
+            //     this.reset(0);
+            // }, 2000);
+
+        }
+        else if (e.target.value === '.' && this.state.accumulated.includes('.')) {
+            console.log('working?');
+
+            this.state.accumulated.push(e.target.value)
+            this.testDec(this.state.accumulated)
         }
         else {
             this.state.accumulated.push(e.target.value)
@@ -72,12 +124,13 @@ class Buttons extends Component {
                 <div className='row'>
                     <div className='col'><button value='.' onClick={this.handleClick} className='btn' id='decimal'>.</button></div>
                     <div className='col'><button value='0' onClick={this.handleClick} className='btn' id='zero'>0</button></div>
-                    <div className='col'><button value='allClear' onClick={this.handleClick} className='btn' id='clear'>AC</button></div>
+                    <div className='col'><button value='' onClick={this.handleClick} className='btn' id='clear'>AC</button></div>
                     <div className='col' id=''></div>
                 </div>
             </div>
         );
     }
 }
+
 
 export default Buttons;

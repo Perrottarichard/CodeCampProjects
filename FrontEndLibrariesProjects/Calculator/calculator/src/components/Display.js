@@ -11,7 +11,7 @@ class Display extends Component {
     render() {
         return (
             <div className='row' id='display'>
-                {this.props.accumulated.join('')}
+                {this.props.accumulated}
             </div>
         );
     }
