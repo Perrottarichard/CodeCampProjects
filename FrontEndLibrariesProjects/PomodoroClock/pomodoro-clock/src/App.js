@@ -1,23 +1,32 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React, { Component } from "react";
 import Timer from "./components/Timer";
 import BreakControl from "./components/BreakControl";
 import SessionControl from "./components/SessionControl";
-import store from "./store";
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <Provider store={store}>
+class App extends Component {
+  render() {
+    return (
       <div className="App" id="outer-container">
         <h1>Pomodoro Clock</h1>
         <div className="row">
-          <BreakControl />
-          <Timer />
-          <SessionControl />
+          <BreakControl time={this.props.breakLength} />
+          <Timer time={this.props.timeRemaining} />
+          <SessionControl time={this.props.sessLength} />
         </div>
       </div>
-    </Provider>
-  );
+    );
+  }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    sessLength: state.sessLength,
+    breakLength: state.breakLength,
+    incVal: state.incVal,
+    decVal: state.decVal,
+    isRunning: state.isRunning,
+    timeRemaining: state.timeRemaining,
+    statusMessage: state.statusMessage,
+  };
+};
+export default connect(mapStateToProps)(App);
