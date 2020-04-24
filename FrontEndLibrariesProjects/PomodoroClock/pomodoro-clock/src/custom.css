@@ -1,13 +1,15 @@
 #timer {
   border-style: solid;
   border-color: black;
+  height: 200px;
 }
 #session-control {
   border-style: solid;
   border-color: black;
+  height: 200px;
 }
 #break-control {
   border-style: solid;
   border-color: black;
-  height: 100px;
+  height: 200px;
 }

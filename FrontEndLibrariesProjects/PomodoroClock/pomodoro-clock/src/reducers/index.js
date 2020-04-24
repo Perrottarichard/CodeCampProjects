@@ -1,34 +1,44 @@
+import {
+  SESS_INC,
+  SESS_DEC,
+  BREAK_INC,
+  BREAK_DEC,
+  RESET,
+  STATUS_INDICATOR,
+  START,
+  STOP,
+  ALARM,
+} from "../actions/types";
+
 const defaultState = {
   sessLength: 25,
   breakLength: 5,
   incVal: 1,
   decVal: 1,
   isRunning: false,
-  timeRemaining: 5,
+  timeLeft: 6000,
   statusMessage: "Stopped",
 };
-const SESS_INC = "SESS_INC";
-const SESS_DEC = "SESS_DEC";
-const BREAK_INC = "BREAK_INC";
-const BREAK_DEC = "BREAK_DEC";
-const RESET = "RESET";
-const ALARM = "ALARM";
-const STATUS_INDICATOR = "STATUS_INDICATOR";
-const START_STOP = "START_STOP";
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case SESS_INC:
-      return {};
+      console.log("session increment");
+      return Object.assign({}, state, {
+        sessLength: state.sessLength + 1,
+      });
 
     case SESS_DEC:
-      return {};
+      console.log("session decrement");
+      return Object.assign({}, state, { sessLength: state.sessLength - 1 });
 
     case BREAK_INC:
-      return {};
+      console.log("break increment");
+      return Object.assign({}, state, { breakLength: state.breakLength + 1 });
 
     case BREAK_DEC:
-      return {};
+      console.log("break decrement");
+      return Object.assign({}, state, { breakLength: state.breakLength - 1 });
 
     case RESET:
       return {};
@@ -39,8 +49,13 @@ const reducer = (state = defaultState, action) => {
     case STATUS_INDICATOR:
       return {};
 
-    case START_STOP:
-      return {};
+    case START:
+      console.log("start");
+      return Object.assign({}, state, { isRunning: true });
+
+    case STOP:
+      console.log("stop");
+      return Object.assign({}, state, { isRunning: false });
 
     default:
       return state;
