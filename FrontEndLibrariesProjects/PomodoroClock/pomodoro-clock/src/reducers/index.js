@@ -16,7 +16,7 @@ const defaultState = {
   incVal: 1,
   decVal: 1,
   isRunning: false,
-  timeLeft: 6000,
+  timeLeft: null,
   statusMessage: "Stopped",
 };
 
@@ -41,13 +41,17 @@ const reducer = (state = defaultState, action) => {
       return Object.assign({}, state, { breakLength: state.breakLength - 1 });
 
     case RESET:
-      return {};
+      return Object.assign({}, defaultState);
 
     case ALARM:
       return {};
 
     case STATUS_INDICATOR:
-      return {};
+      if (state.isRunning) {
+        return Object.assign({}, state, { statusMessage: "In Progress" });
+      } else {
+        return Object.assign({}, state, { statusMessage: "Paused" });
+      }
 
     case START:
       console.log("*start");

@@ -7,8 +7,8 @@ class SessionControl extends Component {
   render() {
     return (
       <div className="col" id="session-control">
-        <h2>Session</h2>
-        <h3>{this.props.sessLength}</h3>
+        <h2>Session Length</h2>
+        <h3>{this.props.sessLength} minutes</h3>
         <button onClick={() => store.dispatch({ type: SESS_INC })}>
           Increment
         </button>

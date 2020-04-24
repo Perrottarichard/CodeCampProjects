@@ -5,7 +5,8 @@ import {
   BREAK_DEC,
   RESET,
   STATUS_INDICATOR,
-  START_STOP,
+  START,
+  STOP,
   ALARM,
 } from "./types";
 

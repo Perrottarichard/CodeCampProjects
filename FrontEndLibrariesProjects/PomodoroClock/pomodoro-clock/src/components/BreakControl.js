@@ -7,8 +7,8 @@ class BreakControl extends Component {
   render() {
     return (
       <div className="col" id="break-control">
-        <h2>Break</h2>
-        <h3>{this.props.breakLength}</h3>
+        <h2>Break Length</h2>
+        <h3>{this.props.breakLength} minutes</h3>
         <button onClick={() => store.dispatch({ type: BREAK_INC })}>
           Increment
         </button>
