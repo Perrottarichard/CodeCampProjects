@@ -39,9 +39,15 @@ export const alarm = () => {
     type: ALARM,
   };
 };
-export const start_Stop = (timeLeft) => {
+export const start = (timeLeft) => {
   return {
-    type: START_STOP,
+    type: START,
+    timeLeft,
+  };
+};
+export const stop = () => {
+  return {
+    type: STOP,
     timeLeft,
   };
 };

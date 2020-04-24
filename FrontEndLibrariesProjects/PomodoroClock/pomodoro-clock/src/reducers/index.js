@@ -23,21 +23,21 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case SESS_INC:
-      console.log("session increment");
+      console.log("*session increment");
       return Object.assign({}, state, {
         sessLength: state.sessLength + 1,
       });
 
     case SESS_DEC:
-      console.log("session decrement");
+      console.log("*session decrement");
       return Object.assign({}, state, { sessLength: state.sessLength - 1 });
 
     case BREAK_INC:
-      console.log("break increment");
+      console.log("*break increment");
       return Object.assign({}, state, { breakLength: state.breakLength + 1 });
 
     case BREAK_DEC:
-      console.log("break decrement");
+      console.log("*break decrement");
       return Object.assign({}, state, { breakLength: state.breakLength - 1 });
 
     case RESET:
@@ -50,11 +50,11 @@ const reducer = (state = defaultState, action) => {
       return {};
 
     case START:
-      console.log("start");
+      console.log("*start");
       return Object.assign({}, state, { isRunning: true });
 
     case STOP:
-      console.log("stop");
+      console.log("*stop");
       return Object.assign({}, state, { isRunning: false });
 
     default:
