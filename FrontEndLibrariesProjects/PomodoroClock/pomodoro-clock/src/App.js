@@ -10,10 +10,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App" id="outer-container">
-          <h1>Pomodoro Clock</h1>
-          <div className="row">
-            <BreakControl />
+          <p id="head">Pomodoro Clock</p>
+          <div className="row justify-content-center">
             <Timer />
+          </div>
+          <div className="row justify-content-center">
+            <BreakControl />
             <SessionControl />
           </div>
         </div>

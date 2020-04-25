@@ -6,10 +6,11 @@ import { SESS_INC, SESS_DEC } from "../actions/types";
 class SessionControl extends Component {
   render() {
     return (
-      <div className="col" id="session-control">
-        <h2 id="session-label">Session Length</h2>
-        <h3 id="session-length">{this.props.sessLength} minutes</h3>
+      <div className="col-2" id="session-control">
+        <p id="session-label">Session Length</p>
+        <p id="session-length">{this.props.sessLength} minutes</p>
         <button
+          className="btn btn-dark"
           id="session-increment"
           onClick={
             this.props.sessLength < 60
@@ -17,9 +18,10 @@ class SessionControl extends Component {
               : console.log("to high to increment")
           }
         >
-          Increment
+          +
         </button>
         <button
+          className="btn btn-dark"
           id="session-decrement"
           onClick={
             this.props.sessLength > 1
@@ -27,7 +29,7 @@ class SessionControl extends Component {
               : console.log("to low to decrement")
           }
         >
-          Decrement
+          -
         </button>
       </div>
     );

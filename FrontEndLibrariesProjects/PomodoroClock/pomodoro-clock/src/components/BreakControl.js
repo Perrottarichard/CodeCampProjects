@@ -6,10 +6,11 @@ import { BREAK_INC, BREAK_DEC } from "../actions/types";
 class BreakControl extends Component {
   render() {
     return (
-      <div className="col" id="break-control">
-        <h2 id="break-label">Break Length</h2>
-        <h3 id="break-length">{this.props.breakLength} minutes</h3>
+      <div className="col-2" id="break-control">
+        <p id="break-label">Break Length</p>
+        <p id="break-length">{this.props.breakLength} minutes</p>
         <button
+          className="btn btn-dark"
           id="break-increment"
           onClick={
             this.props.breakLength < 60
@@ -17,9 +18,10 @@ class BreakControl extends Component {
               : console.log("too high to increment")
           }
         >
-          Increment
+          +
         </button>
         <button
+          className="btn btn-dark"
           id="break-decrement"
           onClick={
             this.props.breakLength > 1
@@ -27,7 +29,7 @@ class BreakControl extends Component {
               : console.log("too low to decrement")
           }
         >
-          Decrement
+          -
         </button>
       </div>
     );

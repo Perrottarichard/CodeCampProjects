@@ -12,7 +12,7 @@ import {
 } from "../actions/types";
 
 const defaultState = {
-  sessLength: 2,
+  sessLength: 25,
   breakLength: 5,
   incVal: 1,
   decVal: 1,

@@ -42,21 +42,33 @@ class Timer extends Component {
   }
   render() {
     return (
-      <div className="col" id="timer">
-        <h2>Timer</h2>
-        <h4 id="timer-label">{this.props.statusMessage}</h4>
-        <audio></audio>
-        <h3 id="time-left">{this.formatTime(this.state.startTime)}</h3>
+      <div className="col-4" id="timer">
+        <p id="timer-label">{this.props.statusMessage}</p>
+        <p id="time-left">{this.formatTime(this.state.startTime)}</p>
+
         {!this.props.isRunning ? (
-          <button id="start_stop" onClick={() => this.startTimer()}>
+          <button
+            className="btn btn-success"
+            id="start_stop"
+            onClick={() => this.startTimer()}
+          >
             Start
           </button>
         ) : (
-          <button id="start_stop" onClick={() => this.stopTimer()}>
+          <button
+            className="btn btn-danger"
+            id="start_stop"
+            style={{ backgroundColor: "red" }}
+            onClick={() => this.stopTimer()}
+          >
             Pause
           </button>
         )}
-        <button id="reset" onClick={() => this.reset()}>
+        <button
+          className="btn btn-primary pull-right"
+          id="reset"
+          onClick={() => this.reset()}
+        >
           Reset
         </button>
       </div>

@@ -1,15 +1,132 @@
+body {
+  background-image: url(Frozen.jpg);
+  width: 100%;
+  height: 100%;
+}
+#head {
+  font-family: "Monofett", cursive;
+  font-size: 60px;
+  text-align: center;
+}
 #timer {
+  font-family: "Monofett", cursive;
+  border-radius: 50%;
+  color: white;
   border-style: solid;
   border-color: black;
-  height: 200px;
+  min-height: 300px;
+  min-width: 300px;
+  text-align: center;
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
+  margin-bottom: 20px;
 }
 #session-control {
+  font-family: "Coiny", cursive;
+  font-size: 20px;
+  border-radius: 5%;
   border-style: solid;
   border-color: black;
-  height: 200px;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+  background-color: #e4e4e1;
+  background-image: radial-gradient(
+      at top center,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(143, 152, 157, 0.6) 100%
+    );
+  background-blend-mode: normal, multiply;
+  margin: 5px;
 }
 #break-control {
+  font-family: "Coiny", cursive;
+  font-size: 20px;
+  border-radius: 5%;
   border-style: solid;
   border-color: black;
-  height: 200px;
+  min-height: 150px;
+  min-width: 150px;
+  text-align: center;
+  background-color: #e4e4e1;
+  background-image: radial-gradient(
+      at top center,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(0, 0, 0, 0.03) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(143, 152, 157, 0.6) 100%
+    );
+  background-blend-mode: normal, multiply;
+  margin: 5px;
+}
+#break-increment,
+#session-increment {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 40px;
+  height: 40px;
+  padding: 5px 5px;
+  border-radius: 35px;
+  font-size: 30px;
+  line-height: 0px;
+  margin: 5px;
+  background-color: rgb(32, 32, 32);
+}
+#break-decrement,
+#session-decrement {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 40px;
+  height: 40px;
+  padding: 5px 5px;
+  border-radius: 35px;
+  font-size: 40px;
+  line-height: 0px;
+  margin: 10px;
+  background-color: rgb(32, 32, 32);
+}
+#start_stop {
+  border: none;
+  font-family: "Coiny", cursive;
+  background-color: rgb(9, 105, 9);
+  width: 60px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+}
+#reset {
+  border: none;
+  font-family: "Coiny", cursive;
+  text-align: center;
+  background-color: rgb(78, 77, 77);
+  width: 60px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+}
+#timer-label {
+  font-family: "Coiny", cursive;
+  font-size: 20px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+#time-left {
+  text-align: center;
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
