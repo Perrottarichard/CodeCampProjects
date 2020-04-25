@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { START, STOP, STATUS_INDICATOR, RESET } from "../actions/types";
+import {
+  START,
+  STOP,
+  STATUS_INDICATOR,
+  RESET,
+  ALARM,
+  STATE_SHIFT,
+} from "../actions/types";
 import store from "../store";
 class Timer extends Component {
   constructor(props) {
@@ -8,10 +15,12 @@ class Timer extends Component {
     this.state = {
       timer: null,
       startTime: this.props.sessLength * 60 * 1000,
+      shiftTime: this.props.sessLength * 60,
       breakTime: this.props.breakLength * 60 * 1000,
       isRunning: this.props.isRunning,
     };
   }
+
   static getDerivedStateFromProps(props, state) {
     if (
       props.sessLength !== state.startTime &&
@@ -19,13 +28,12 @@ class Timer extends Component {
     ) {
       return {
         startTime: props.sessLength * 1000 * 60,
+        shiftTime: props.sessLength * 60,
       };
-    } else return null;
-  }
-  static getDerivedStateFromProps(props, state) {
+    }
     if (
       props.breakLength !== state.breakTime &&
-      props.statusMessage === "Stopped"
+      props.statusMessage === "Break Time"
     ) {
       return {
         breakTime: props.breakLength * 1000 * 60,
@@ -36,15 +44,16 @@ class Timer extends Component {
     return (
       <div className="col" id="timer">
         <h2>Timer</h2>
-        <h4>{this.props.statusMessage}</h4>
-        <h3>{this.formatTime(this.state.startTime)}</h3>
+        <h4 id="timer-label">{this.props.statusMessage}</h4>
+        <audio></audio>
+        <h3 id="time-left">{this.formatTime(this.state.startTime)}</h3>
         {!this.props.isRunning ? (
           <button id="start_stop" onClick={() => this.startTimer()}>
             Start
           </button>
         ) : (
           <button id="start_stop" onClick={() => this.stopTimer()}>
-            Stop
+            Pause
           </button>
         )}
         <button id="reset" onClick={() => this.reset()}>
@@ -54,12 +63,24 @@ class Timer extends Component {
     );
   }
   startTimer = () => {
+    const alarm = new Audio(
+      "https://media.jpkarlsven.com/audio/codepen/pomodoro-clock/stop.mp3"
+    );
+    alarm.play();
     store.dispatch({ type: START });
     store.dispatch({ type: STATUS_INDICATOR });
     this.interval = setInterval(() => {
-      this.setState((prevState) => ({
-        startTime: prevState.startTime - 1,
-      }));
+      console.log(this.state.shiftTime);
+      if (this.state.shiftTime === 0) {
+        clearInterval(this.interval);
+        this.shift();
+        // store.dispatch({ type: ALARM });
+        // store.dispatch({ type: STATE_SHIFT });
+      } else
+        this.setState((prevState) => ({
+          startTime: prevState.startTime - 1,
+          shiftTime: prevState.shiftTime - 1,
+        }));
     }, 1000);
     console.log("started");
   };
@@ -74,7 +95,7 @@ class Timer extends Component {
     clearInterval(this.interval);
     store.dispatch({ type: RESET });
     this.setState({
-      startTime: 25 * 1000 * 60,
+      startTime: this.props.sessLength * 1000 * 60,
       isRunning: this.props.isRunning,
     });
     console.log(this.props.sessLength);
@@ -86,6 +107,35 @@ class Timer extends Component {
       displaySec = `0${displaySec}`;
     }
     return `${displayMin}:${displaySec}`;
+  };
+  shift = () => {
+    console.log("shift");
+    store.dispatch({ type: ALARM });
+    store.dispatch({ type: STATE_SHIFT });
+    this.setState({
+      startTime: this.props.breakLength * 60 * 1000,
+      shiftTime: this.props.breakLength * 60,
+    });
+    this.interval = setInterval(() => {
+      console.log(this.state.startTime);
+      console.log(this.state.shiftTime);
+      if (this.state.shiftTime === 0) {
+        clearInterval(this.interval);
+        store.dispatch({ type: ALARM });
+        store.dispatch({ type: STATE_SHIFT });
+        this.setState({
+          startTime: this.props.sessLength * 60 * 1000,
+          shiftTime: this.props.sessLength * 60,
+          breakTime: this.props.breakLength * 60 * 1000,
+          isRunning: this.props.isRunning,
+        });
+        this.startTimer();
+      } else
+        this.setState((prevState) => ({
+          startTime: prevState.startTime - 1,
+          shiftTime: prevState.shiftTime - 1,
+        }));
+    }, 1000);
   };
 }
 

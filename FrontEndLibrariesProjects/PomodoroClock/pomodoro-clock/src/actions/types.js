@@ -7,3 +7,4 @@ export const ALARM = "ALARM";
 export const STATUS_INDICATOR = "STATUS_INDICATOR";
 export const START = "START";
 export const STOP = "STOP";
+export const STATE_SHIFT = "STATE_SHIFT";

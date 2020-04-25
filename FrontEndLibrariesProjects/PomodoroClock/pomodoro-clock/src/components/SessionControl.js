@@ -7,12 +7,26 @@ class SessionControl extends Component {
   render() {
     return (
       <div className="col" id="session-control">
-        <h2>Session Length</h2>
-        <h3>{this.props.sessLength} minutes</h3>
-        <button onClick={() => store.dispatch({ type: SESS_INC })}>
+        <h2 id="session-label">Session Length</h2>
+        <h3 id="session-length">{this.props.sessLength} minutes</h3>
+        <button
+          id="session-increment"
+          onClick={
+            this.props.sessLength < 60
+              ? () => store.dispatch({ type: SESS_INC })
+              : console.log("to high to increment")
+          }
+        >
           Increment
         </button>
-        <button onClick={() => store.dispatch({ type: SESS_DEC })}>
+        <button
+          id="session-decrement"
+          onClick={
+            this.props.sessLength > 1
+              ? () => store.dispatch({ type: SESS_DEC })
+              : console.log("to low to decrement")
+          }
+        >
           Decrement
         </button>
       </div>

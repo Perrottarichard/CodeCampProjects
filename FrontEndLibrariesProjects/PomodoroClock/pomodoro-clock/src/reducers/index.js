@@ -8,10 +8,11 @@ import {
   START,
   STOP,
   ALARM,
+  STATE_SHIFT,
 } from "../actions/types";
 
 const defaultState = {
-  sessLength: 25,
+  sessLength: 2,
   breakLength: 5,
   incVal: 1,
   decVal: 1,
@@ -44,11 +45,13 @@ const reducer = (state = defaultState, action) => {
       return Object.assign({}, defaultState);
 
     case ALARM:
-      return {};
+      return Object.assign({}, state, { statusMessage: "Alarm" });
 
     case STATUS_INDICATOR:
       if (state.isRunning) {
-        return Object.assign({}, state, { statusMessage: "In Progress" });
+        return Object.assign({}, state, {
+          statusMessage: "Session In Progress",
+        });
       } else {
         return Object.assign({}, state, { statusMessage: "Paused" });
       }
@@ -60,6 +63,11 @@ const reducer = (state = defaultState, action) => {
     case STOP:
       console.log("*stop");
       return Object.assign({}, state, { isRunning: false });
+
+    case STATE_SHIFT:
+      return Object.assign({}, state, {
+        statusMessage: "Break Time",
+      });
 
     default:
       return state;
