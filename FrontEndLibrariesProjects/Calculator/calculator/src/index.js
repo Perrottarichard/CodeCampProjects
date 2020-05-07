@@ -1,5 +1,6 @@
 import './bootstrap/dist/css/bootstrap.css';
 import './custom.css'
+import './dark-mode.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

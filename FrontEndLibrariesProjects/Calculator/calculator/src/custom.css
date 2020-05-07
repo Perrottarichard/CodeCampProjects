@@ -1,6 +1,11 @@
 #con {
     text-align: center;
 }
+#switch {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
 .container {
     max-width: 400px;
     margin: auto;

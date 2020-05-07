@@ -1,0 +1,85 @@
+
+[data-theme="dark"] {
+    background-color: rgb(59, 58, 58) !important;
+    color: #eee;
+  }
+  
+  [data-theme="dark"] .bg-light {
+    background-color: #333 !important;
+  }
+  
+  [data-theme="dark"] .bg-white {
+    background-color: #000 !important;
+  }
+  
+  [data-theme="dark"] .bg-black {
+    background-color: #eee !important;
+  }
+  [data-theme="dark"] #display {
+    background-color: rgb(174, 208, 231);
+    color: rgb(7, 7, 7);
+  }
+  [data-theme="dark"] #seven {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #eight {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #nine {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #four {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #five {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #six {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #one {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #two {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #three {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #zero {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #decimal {
+    background-color: rgb(36, 37, 36);
+    color: white;
+  }
+  [data-theme="dark"] #divide {
+    background-color: rgb(141, 143, 141);
+    color: black;
+  }
+  [data-theme="dark"] #multiply {
+    background-color: rgb(89, 90, 89);
+    color: black;
+  }
+  [data-theme="dark"] #subtract {
+    background-color: rgb(141, 143, 141);
+    color: black;
+  }
+  [data-theme="dark"] #add {
+    background-color: rgb(89, 90, 89);
+    color: black;
+  }
+  [data-theme="dark"] #clear {
+    background-color: rgb(36, 37, 36);
+    color: rgb(160, 74, 74);
+  }

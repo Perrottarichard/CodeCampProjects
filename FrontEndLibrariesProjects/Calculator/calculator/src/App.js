@@ -1,4 +1,5 @@
 import React from 'react';
+import darkSwitch from 'dark-mode-switch';
 import Buttons from './components/Buttons'
 
 function App() {
