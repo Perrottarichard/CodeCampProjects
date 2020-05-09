@@ -10,7 +10,7 @@ class App extends Component {
             <div className="App">
                 <div className="container" id="bootstrap-override">
                     <div>
-                        <h1>Give it a Try!</h1></div>
+                        <h4>'Markdown' is a lightweight markup language.  Try it here:</h4></div>
                     <Displayed />
                 </div>
             </div>

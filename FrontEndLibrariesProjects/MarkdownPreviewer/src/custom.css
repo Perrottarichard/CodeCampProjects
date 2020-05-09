@@ -24,11 +24,13 @@ h3{
   
 }
 #preview {
-margin-right: 10px;
+margin-right: 15px;
+margin-left: 15px;
   padding: 20px;
-    background-color: #d1e0e0;
-color: #132639;
+    background-color: #303333;
+color: #e7ecf1;
   border-radius: 1.5%;
+  min-width: 300px;
 }
 textarea {
 resize: vertical;
