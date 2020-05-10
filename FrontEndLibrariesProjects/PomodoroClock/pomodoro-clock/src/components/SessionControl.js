@@ -8,7 +8,8 @@ class SessionControl extends Component {
     return (
       <div className="col-2" id="session-control">
         <p id="session-label">Session Length</p>
-        <p id="session-length">{this.props.sessLength} minutes</p>
+        {(this.props.sessLength === 1) ? <p id="session-length">{this.props.sessLength} minute</p> :
+          <p id="session-length">{this.props.sessLength} minutes</p>}
         <button
           className="btn btn-dark"
           id="session-increment"

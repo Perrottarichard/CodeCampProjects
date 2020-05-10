@@ -8,7 +8,8 @@ class BreakControl extends Component {
     return (
       <div className="col-2" id="break-control">
         <p id="break-label">Break Length</p>
-        <p id="break-length">{this.props.breakLength} minutes</p>
+        {(this.props.breakLength === 1) ? <p id="break-length">{this.props.breakLength}<br></br> minute</p> :
+          <p id="break-length">{this.props.breakLength}<br></br> minutes</p>}
         <button
           className="btn btn-dark"
           id="break-increment"

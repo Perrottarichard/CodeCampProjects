@@ -45,7 +45,7 @@ class Timer extends Component {
       <div className="col-4" id="timer">
         <p id="timer-label">{this.props.statusMessage}</p>
         <p id="time-left">{this.formatTime(this.state.startTime)}</p>
-
+        <audio id='beep'></audio>
         {!this.props.isRunning ? (
           <button
             className="btn btn-success"
@@ -55,15 +55,15 @@ class Timer extends Component {
             Start
           </button>
         ) : (
-          <button
-            className="btn btn-danger"
-            id="start_stop"
-            style={{ backgroundColor: "red" }}
-            onClick={() => this.stopTimer()}
-          >
-            Pause
-          </button>
-        )}
+            <button
+              className="btn btn-danger"
+              id="start_stop"
+              style={{ backgroundColor: "red" }}
+              onClick={() => this.stopTimer()}
+            >
+              Pause
+            </button>
+          )}
         <button
           className="btn btn-primary pull-right"
           id="reset"
@@ -71,16 +71,14 @@ class Timer extends Component {
         >
           Reset
         </button>
+
       </div>
     );
   }
   startTimer = () => {
-    const alarm = new Audio(
-      "https://media.jpkarlsven.com/audio/codepen/pomodoro-clock/stop.mp3"
-    );
-    alarm.play();
     store.dispatch({ type: START });
     store.dispatch({ type: STATUS_INDICATOR });
+    document.getElementById("timer").style.animationPlayState = 'running';
     this.interval = setInterval(() => {
       console.log(this.state.shiftTime);
       if (this.state.shiftTime === 0) {
@@ -100,10 +98,13 @@ class Timer extends Component {
     console.log("stopped");
     store.dispatch({ type: STOP });
     store.dispatch({ type: STATUS_INDICATOR });
+    document.getElementById("timer").style.animationPlayState = 'paused';
     clearInterval(this.interval);
   };
   reset = () => {
     console.log("reset");
+    document.getElementById("body").style.backgroundColor = '#deb86d';
+    document.getElementById("timer").style.animationPlayState = 'paused';
     clearInterval(this.interval);
     store.dispatch({ type: RESET });
     this.setState({
@@ -118,10 +119,14 @@ class Timer extends Component {
     if (displaySec < 10) {
       displaySec = `0${displaySec}`;
     }
+    if (displayMin < 10) {
+      displayMin = `0${displayMin}`;
+    }
     return `${displayMin}:${displaySec}`;
   };
   shift = () => {
     console.log("shift");
+    document.getElementById("body").style.backgroundColor = 'rgb(9, 105, 9)';
     store.dispatch({ type: ALARM });
     store.dispatch({ type: STATE_SHIFT });
     this.setState({
@@ -134,7 +139,8 @@ class Timer extends Component {
       if (this.state.shiftTime === 0) {
         clearInterval(this.interval);
         store.dispatch({ type: ALARM });
-        store.dispatch({ type: STATE_SHIFT });
+        store.dispatch({ type: STATE_SHIFT }); document.getElementById("body").style.backgroundColor = '#deb86d';
+
         this.setState({
           startTime: this.props.sessLength * 60 * 1000,
           shiftTime: this.props.sessLength * 60,
