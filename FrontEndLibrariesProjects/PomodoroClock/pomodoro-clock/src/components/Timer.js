@@ -103,7 +103,7 @@ class Timer extends Component {
   };
   reset = () => {
     console.log("reset");
-    document.getElementById("body").style.backgroundColor = '#deb86d';
+    document.getElementById("body").style.backgroundColor = '#6ebadd';
     document.getElementById("timer").style.animationPlayState = 'paused';
     clearInterval(this.interval);
     store.dispatch({ type: RESET });
@@ -139,7 +139,7 @@ class Timer extends Component {
       if (this.state.shiftTime === 0) {
         clearInterval(this.interval);
         store.dispatch({ type: ALARM });
-        store.dispatch({ type: STATE_SHIFT }); document.getElementById("body").style.backgroundColor = '#deb86d';
+        store.dispatch({ type: STATE_SHIFT }); document.getElementById("body").style.backgroundColor = '#6ebadd';
 
         this.setState({
           startTime: this.props.sessLength * 60 * 1000,

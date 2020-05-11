@@ -1,5 +1,5 @@
 body {
-  background-color: #deb86d;
+  background-color: #6ebadd;
   width: 100%;
   height: 100%;
 }
@@ -49,8 +49,8 @@ body {
   min-height: 150px;
   min-width: 150px;
   text-align: center;
-  background-color:black;
-  color: white;
+  background-color:transparent;
+  color: rgb(3, 3, 3);
   margin: 5px;
   text-shadow: 2px 2px #c9442c;
 }
@@ -60,7 +60,7 @@ body {
   min-height: 150px;
   min-width: 150px;
   text-align: center;
-  background-color: #e4e4e1;
+  background-color: transparent;
   margin: 5px;
   color: black;
   text-shadow: 2px 2px #c9442c;
@@ -78,6 +78,9 @@ body {
   line-height: 0px;
   margin: 5px;
   background-color: rgb(9, 105, 9);
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
 }
 #break-decrement,
 #session-decrement {
@@ -90,6 +93,9 @@ body {
   line-height: 0px;
   margin: 10px;
   background-color: #c9442c;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
 }
 #start_stop {
   border: none;
@@ -131,11 +137,11 @@ body {
 
 }
 #break-length {
-  font-size: 30px;
+  font-size: 1em;
   color: black;
   text-shadow: 2px 2px #c9442c;
 }
 #session-length {
-  font-size: 30px;
+  font-size: 1em;
   text-shadow: 2px 2px #c9442c;
 }
